@@ -1,18 +1,31 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* O texto base aumenta conforme o tamanho do ecrã */
+  font-size: clamp(18px, 2vw + 12px, 22px);
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #e0d8d8;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .titulo {
   text-align: center;
-  padding: 40px 20px;
+  padding: 8vh 3vw 1vh 3vw;
 }
 
 .conteudo {
-  width: 100%;
+  width: 90%;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,18 +33,21 @@ body {
 }
 
 .texto1 {
-  max-width: 400px;
+  width: 100%;
+  max-width: 800px;
   margin: 20px;
   text-align: justify;
-  line-height: 1.5;
+  line-height: 1.6;
   text-indent: 20px;
 }
 .parte1 {
+  width: 100%;
+  max-width: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-top: 80px;
+  gap: 2rem;
+  margin: 3rem 0;
   margin-bottom: 80px;
 }
 .imagem1 {
@@ -45,41 +61,57 @@ body {
   transform: scale(1.03);
 }
 .texto2 {
-  max-width: 400px;
-  margin: 20px;
-  margin-bottom: 80px;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem 0;
+  margin-bottom: 60px;
   text-align: justify;
-  line-height: 1.5;
+  line-height: 1.6;
   text-indent: 20px;
 }
 
+h4 {
+  margin-top: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.section-808-mantra-audio {
+  display: flex;
+  max-width: 1000px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
 .foto-mixer-players {
   height: auto;
   justify-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin: 3rem 0;
 }
 
 .foto-mixer {
-  width: 300px;
+  width: 500px;
   height: auto;
   justify-items: center;
   margin-bottom: 40px;
-  margin-top: 40px;
-  margin-right: 10px;
 }
 .players {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: 10px;
-  gap: 30px;
-  margin-bottom: 40px;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: #b5afaf;
+  background-color: #e0d8d8;
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -87,11 +119,12 @@ audio::-webkit-media-controls-panel {
 audio::-webkit-media-controls-enclosure {
   border-radius: 0;
   box-shadow: none;
-  background-color: #b5afaf;
+  background-color: #e0d8d8;
 }
 
 .texto3 {
-  max-width: 400px;
+  width: 100%;
+  max-width: 800px;
   margin: 20px;
   margin-top: 80px;
   text-align: justify;
@@ -100,21 +133,187 @@ audio::-webkit-media-controls-enclosure {
 }
 
 .texto4 {
-  max-width: 400px;
+  max-width: 600px;
   margin: 20px;
   text-align: justify;
   line-height: 1.5;
   text-indent: 20px;
 }
 
+
+.image-player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.clickable-audio {
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.clickable-audio:hover {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+/* Classe que podes adicionar via JS quando o som estiver a tocar */
+.playing {
+  border: 1px solid #555; /* Exemplo: uma borda para indicar que está ativo */
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.shruti-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra tudo horizontalmente */
+  gap: 25px; /* Cria o espaço entre texto, imagem e player */
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+/* Reduzir o tamanho da imagem da Shruti Box */
+.imagem-shruti {
+  width: 300px; /* Tamanho menor que os 350px padrão */
+  height: auto;
+  border-radius: 4px; /* Opcional: suaviza os cantos */
+}
+
+/* Garante que o player também fica centrado */
+.shruti-container audio {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 10px; /* Largura confortável para o player */
+}
+
+.container-generative-sound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+}
+
+.imagens-generative-sound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  gap: 20px;
+  margin: 3rem 0;
+}
+
+.imagem-notacao-esquerda {
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+  justify-items: center;
+  transition: transform 0.2s ease;
+}
+
 .video-maxmsp {
-  width: 600px;
+  width: 800px;
   max-width: 100%;
   height: auto;
   margin: auto;
   display: block;
   margin-top: 40px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.about-me-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px;
+  margin-bottom: 80px;
+  text-align: justify;
+  line-height: 1.5;
+  text-indent: 20px;
+}
+
+.contact-section a img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s ease;
+}
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+.contact-section a img:hover {
+  transform: translateY(-5px);
+}
+/* AJUSTES ESPECÍFICOS (Media Queries) */
+
+/* Para ecrãs muito pequenos (iPhone) */
+@media (max-width: 600px) {
+  .conteudo {
+    width: 95%;
+  }
+  section {
+    text-align: left;
+  } /* Texto justificado fica mal em ecrãs muito estreitos */
+  .imagem1 {
+    max-width: 100%;
+  }
+}
+
+/* Para ecrãs gigantes (4K) */
+@media (min-width: 2500px) {
+  .conteudo {
+    max-width: 1200px; /* Permite uma escala maior em monitores Pro */
+  }
+  :root {
+    font-size: 24px;
+  } /* Texto base ainda maior para conforto visual */
+}
+
+/* Media Query para ecrãs médios (Laptops/MacBooks) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .conteudo {
+    max-width: 650px; /* Um meio termo entre o mobile e o 4K */
+  }
+  :root {
+    /* Reduz o tamanho base da letra para o MacBook */
+    font-size: 15px;
+  }
+
+  section {
+    max-width: 550px; /* Mantém a leitura confortável */
+    margin-bottom: 4rem;
+  }
+
+  /* Ajuste específico para a secção do mixer e áudio */
+  .foto-mixer-players {
+    flex-direction: row; /* Garante que fiquem lado a lado */
+    justify-content: space-around;
+    gap: 30px;
+  }
+
+  .imagem1 {
+    max-width: 400px; /* Aumenta ligeiramente o impacto visual das fotos */
+  }
+
+  .players {
+    flex: 1; /* Faz os players ocuparem o espaço restante de forma equilibrada */
+    max-width: 350px;
+  }
 }
